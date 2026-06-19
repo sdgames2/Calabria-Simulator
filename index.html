@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -152,10 +151,27 @@
             border-left: 4px solid #ff4500;
         }
 
-        /* Container Video Locale */
+        /* Titoli Video */
+        .video-section-title {
+            color: #ff9800;
+            font-size: 1.4rem;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Container Video e Griglia */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
         .video-container {
             text-align: center;
-            margin-bottom: 40px;
             background: #000;
             padding: 8px;
             border-radius: 12px;
@@ -289,11 +305,26 @@
             Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco. Segui i nostri update!
         </div>
 
-        <div class="video-container">
-            <video controls width="720" poster="logo calabria simulator.jpg">
-                <source src="presentaione.mp4" type="video/mp4">
-                Il tuo browser non supporta i video HTML5.
-            </video>
+        <div class="video-grid">
+            <div>
+                <div class="video-section-title" id="vtitle-1">🎬 Trailer di Presentazione</div>
+                <div class="video-container">
+                    <video controls poster="logo calabria simulator.jpg">
+                        <source src="presentaione.mp4" type="video/mp4">
+                        Il tuo browser non supporta i video HTML5.
+                    </video>
+                </div>
+            </div>
+
+            <div>
+                <div class="video-section-title" id="vtitle-2">🎮 Anteprima Gameplay</div>
+                <div class="video-container">
+                    <video controls poster="logo calabria simulator.jpg">
+                        <source src="anteprima 1.mp4" type="video/mp4">
+                        Il tuo browser non supporta i video HTML5.
+                    </video>
+                </div>
+            </div>
         </div>
 
         <section>
@@ -337,9 +368,12 @@
                 tagline: '"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N\'duja."',
                 audio: "🔊 COLONNA SONORA:",
                 intro: "Benvenuti sul sito ufficiale di Calabria Simulator: l'unico gioco dove il progresso si respira nell'aria (e ha il sapore dell'eternità).<br><br>Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco. Segui i nostri update!",
+                vtitle1: "🎬 Trailer di Presentazione",
+                vtitle2: "🎮 Anteprima Gameplay",
                 sect1: "🐺 Le Creature dell'Altopiano",
                 npc1_name: "Il Silanum",
                 npc1_desc: "Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>banastona</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!",
+                sect2: "🤖 Minaccia Cyber-Calabra: I Robot",
                 npc2_name: "Il Robot Tarantulò",
                 npc2_desc: "Un'intelligenza artificiale fissa ed onnipresente. Puoi trovarlo installato in un qualsiasi bar della Calabria. Non fa nulla, non serve caffè, ma vi fissa e vi giudica di continuo per ogni singola azione o scelta di vita che fate all'interno del gioco.",
                 npc3_name: "Il Robot Praticantulò",
@@ -352,6 +386,8 @@
                 tagline: '"A civiltà carriu a \'mpernu. A natura si ripigghiau tuttu. E i scimmie ampararunu u sicretu da N\'duja."',
                 audio: "🔊 A MUSICHETTA DU SITO:",
                 intro: "Benvenuti supru u situ ufficiali di Calabria Simulator: l\'unicu jocu per canusci u veru prugressu (chi puzza de eternità).<br><br>Un faciti i fissa cu i soliti jochi patinati de fora. Chi u jannu stamu facendu, Calabria Simulator vi jatta dintra u core da Calabria, tutta sfasciata e arrizzata a stile de scimmia block. Siga l\'evoluzioni!",
+                vtitle1: "🎬 Presentazione Video",
+                vtitle2: "🎮 Videuzzu de Giocu",
                 sect1: "🐺 I Bestie da Sila",
                 npc1_name: "U Silanum",
                 npc1_desc: "U lupu bruttu da Sila. Na bestia malanova: si t\'avvicini o si provi a spararli cu a <em>banastona</em> (u mitra a forma de banana chi s\'accatta o bar), chistu s\'incazza e ti jetta iettatorie e fatture dintra l\'occhi!",
@@ -370,9 +406,12 @@
             document.getElementById('tagline').innerHTML = translations[lang].tagline;
             document.getElementById('audio-title').innerHTML = translations[lang].audio;
             document.getElementById('intro-text').innerHTML = translations[lang].intro;
+            document.getElementById('vtitle-1').innerHTML = translations[lang].vtitle1;
+            document.getElementById('vtitle-2').innerHTML = translations[lang].vtitle2;
             document.getElementById('sect1-title').innerHTML = translations[lang].sect1;
             document.getElementById('npc1-name').innerHTML = translations[lang].npc1_name;
             document.getElementById('npc1-desc').innerHTML = translations[lang].npc1_desc;
+            document.getElementById('sect2-title').innerHTML = translations[lang].sect2;
             document.getElementById('npc2-name').innerHTML = translations[lang].npc2_name;
             document.getElementById('npc2-desc').innerHTML = translations[lang].npc2_desc;
             document.getElementById('npc3-name').innerHTML = translations[lang].npc3_name;
