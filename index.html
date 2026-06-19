@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calabria Simulator - Official Site</title>
+    <style>
+        /* Stili Generali (Mood Giungla/Gaming Scuro) */
+        body {
+            background-color: #0d130d;
+            color: #e2ebe2;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Immagini decorative ai lati */
+        .side-scimmia-left {
+            position: fixed;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 320px;
+            height: auto;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0px 12px 25px rgba(0,0,0,0.7));
+        }
+
+        .side-scimmia-right {
+            position: fixed;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 320px;
+            height: auto;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0px 12px 25px rgba(0,0,0,0.7));
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Selettore Lingua (Icone Ingrandite) */
+        .language-selector {
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 3px solid transparent;
+            cursor: pointer;
+            padding: 3px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            margin-left: 15px;
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .lang-btn.active {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.25);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .lang-btn img {
+            width: 80px;  /* Larghezza aumentata */
+            height: 55px; /* Altezza aumentata */
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        /* Testata con Logo */
+        header {
+            text-align: center;
+            padding: 20px 0 10px 0;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            width: 550px;
+            filter: drop-shadow(0px 4px 20px rgba(76, 175, 80, 0.2));
+            margin-bottom: 20px;
+        }
+
+        /* Badge Stato Sviluppo */
+        .dev-badge {
+            background-color: #ff9800;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(255, 152, 0, 0.3);
+        }
+
+        /* Pannello Audio Scimmie */
+        .audio-container {
+            text-align: center;
+            margin: 20px 0 30px 0;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 50px;
+            border: 1px solid #4caf50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .audio-container span {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #8da48d;
+            font-size: 1.25rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #cfd9cf;
+            background: rgba(255, 69, 0, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ff4500;
+        }
+
+        /* Container Video Locale */
+        .video-container {
+            text-align: center;
+            margin-bottom: 40px;
+            background: #000;
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid #1f301f;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Sezioni */
+        section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #1f301f;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4caf50; 
+            font-size: 1.8rem;
+            margin-top: 0;
+            border-bottom: 1px solid #1f301f;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 3px solid #4caf50;
+        }
+
+        li strong {
+            color: #ff9800; 
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cyber-npc li {
+            border-left: 3px solid #00e5ff; 
+        }
+        .cyber-npc li strong {
+            color: #00e5ff;
+        }
+
+        /* Bottone Instagram */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(135deg, #ff4500 0%, #cc3700 100%);
+            color: #fff;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 69, 0, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #556655;
+        }
+
+        /* Responsive */
+        @media (max-width: 1450px) {
+            .side-scimmia-left, .side-scimmia-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="icona 1.jpg" alt="Scimmia Decorativa Sinistra" class="side-scimmia-left">
+    <img src="icona 2.jpg" alt="Scimmia Decorativa Destra" class="side-scimmia-right">
+
+    <div class="container">
+        
+        <div class="language-selector">
+            <button class="lang-btn active" onclick="switchLanguage('it')" id="btn-it">
+                <img src="logo lingua italiana.jpg" alt="Italiano">
+            </button>
+            <button class="lang-btn" onclick="switchLanguage('cal')" id="btn-cal">
+                <img src="logo lingua calabria.jpg" alt="Calabrese">
+            </button>
+        </div>
+
+        <header>
+            <img src="logo calabria simulator.jpg" alt="Calabria Simulator Logo" class="logo-img"><br>
+            <div class="dev-badge" id="dev-badge">⚠️ GIOCO IN FASE DI SVILUPPO ⚠️</div>
+            <p class="tagline" id="tagline">"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N'duja."</p>
+        </header>
+
+        <div class="audio-container">
+            <span id="audio-title">🔊 COLONNA SONORA:</span>
+            <audio controls autoplay loop>
+                <source src="musica sito.mp3" type="audio/mpeg">
+                Il tuo browser non supporta l'elemento audio.
+            </audio>
+        </div>
+
+        <div class="intro" id="intro-text">
+            Benvenuti sul sito ufficiale di Calabria Simulator: l'unico gioco dove il progresso si respira nell'aria (e ha il sapore dell'eternità).<br><br>
+            Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco. Segui i nostri update!
+        </div>
+
+        <div class="video-container">
+            <video controls width="720" poster="logo calabria simulator.jpg">
+                <source src="presentaione.mp4" type="video/mp4">
+                Il tuo browser non supporta i video HTML5.
+            </video>
+        </div>
+
+        <section>
+            <h2 id="sect1-title">🐺 Le Creature dell'Altopiano</h2>
+            <ul>
+                <li>
+                    <strong id="npc1-name">Il Silanum</strong>
+                    <span id="npc1-desc">Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>banastona</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🤖 Minaccia Cyber-Calabra: I Robot</h2>
+            <ul class="cyber-npc">
+                <li>
+                    <strong id="npc2-name">Il Robot Tarantulò</strong>
+                    <span id="npc2-desc">Un'intelligenza artificiale fissa ed onnipresente. Puoi trovarlo installato in un qualsiasi bar della Calabria. Non fa nulla, non serve caffè, ma vi fissa e vi giudica di continuo per ogni singola azione o scelta di vita che fate all'interno del gioco.</span>
+                </li>
+                <li>
+                    <strong id="npc3-name">Il Robot Praticantulò</strong>
+                    <span id="npc3-desc">Una letale anomalia fluttuante. Questo robot volante vi inseguirà implacabilmente per tutta la mappa ripetendo in loop il suo folle glitch di programmazione vocale: <em>"Quelle scimmie che mi piacciono a me, mi piacciono bionde, capelli magri sex bellissime"</em>. Evitalo a tutti i costi se non vuoi impazzire!</span>
+                </li>
+            </ul>
+        </section>
+
+        <div class="cta-container">
+            <a href="https://www.instagram.com/calabria_simulator_?igsh=MTV6bG1uNjFwejUzbQ==" target="_blank" class="btn-instagram" id="btn-insta">SEGUI LO SVILUPPO SU INSTAGRAM</a>
+        </div>
+
+        <footer>
+            <p id="footer-text">&copy; 2026 Calabria Simulator Dev Team. Stato del progetto: In Sviluppo.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const translations = {
+            it: {
+                badge: "⚠️ GIOCO IN FASE DI SVILUPPO ⚠️",
+                tagline: '"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N\'duja."',
+                audio: "🔊 COLONNA SONORA:",
+                intro: "Benvenuti sul sito ufficiale di Calabria Simulator: l'unico gioco dove il progresso si respira nell'aria (e ha il sapore dell'eternità).<br><br>Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco. Segui i nostri update!",
+                sect1: "🐺 Le Creature dell'Altopiano",
+                npc1_name: "Il Silanum",
+                npc1_desc: "Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>banastona</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!",
+                npc2_name: "Il Robot Tarantulò",
+                npc2_desc: "Un'intelligenza artificiale fissa ed onnipresente. Puoi trovarlo installato in un qualsiasi bar della Calabria. Non fa nulla, non serve caffè, ma vi fissa e vi giudica di continuo per ogni singola azione o scelta di vita che fate all'interno del gioco.",
+                npc3_name: "Il Robot Praticantulò",
+                npc3_desc: "Una letale anomalia fluttuante. Questo robot volante vi inseguirà implacabilmente per tutta la mappa ripetendo in loop il suo folle glitch di programmazione vocale: <em>\"Quelle scimmie che mi piacciono a me, mi piacciono bionde, capelli magri sex bellissime\"</em>. Evitalo a tutti i costi se non vuoi impazzire!",
+                insta: "SEGUI LO SVILUPPO SU INSTAGRAM",
+                footer: "&copy; 2026 Calabria Simulator Dev Team. Stato del progetto: In Sviluppo."
+            },
+            cal: {
+                badge: "⚠️ U JOCU U STANNUME FACENDU MO ⚠️",
+                tagline: '"A civiltà carriu a \'mpernu. A natura si ripigghiau tuttu. E i scimmie ampararunu u sicretu da N\'duja."',
+                audio: "🔊 A MUSICHETTA DU SITO:",
+                intro: "Benvenuti supru u situ ufficiali di Calabria Simulator: l\'unicu jocu per canusci u veru prugressu (chi puzza de eternità).<br><br>Un faciti i fissa cu i soliti jochi patinati de fora. Chi u jannu stamu facendu, Calabria Simulator vi jatta dintra u core da Calabria, tutta sfasciata e arrizzata a stile de scimmia block. Siga l\'evoluzioni!",
+                sect1: "🐺 I Bestie da Sila",
+                npc1_name: "U Silanum",
+                npc1_desc: "U lupu bruttu da Sila. Na bestia malanova: si t\'avvicini o si provi a spararli cu a <em>banastona</em> (u mitra a forma de banana chi s\'accatta o bar), chistu s\'incazza e ti jetta iettatorie e fatture dintra l\'occhi!",
+                npc2_name: "U Robot Tarantulò",
+                npc2_desc: "N\'intelligenza artificiali chi sta sempri fissa. U trovi intra tutti i bar da Calabria. Un fa nenti, mancu u cafè ti fa, ma ti fissa e ti judica sempri c\'un cannelu de mmerda ppe ogni fissa de scelta chi fai intra u jocu.",
+                npc3_name: "U Robot Praticantulò",
+                npc3_desc: "Nu robot volanti chi vola e rompe i cugghiuni. Ti veni appressu pi tutta a mappa gridandu sempri u stissu computer guastatu: <em>\"Quelle scimmie che mi piacciono a me, mi piacciono bionde, capelli magri sex bellissime\"</em>. Scappa si no t\'esci u ciriveddu!",
+                insta: "VACI SUBITU SUPRA INSTAGRAM",
+                footer: "&copy; 2026 Calabria Simulator Dev Team. Chi jòcu stamu facendu mo."
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById('dev-badge').innerHTML = translations[lang].badge;
+            document.getElementById('tagline').innerHTML = translations[lang].tagline;
+            document.getElementById('audio-title').innerHTML = translations[lang].audio;
+            document.getElementById('intro-text').innerHTML = translations[lang].intro;
+            document.getElementById('sect1-title').innerHTML = translations[lang].sect1;
+            document.getElementById('npc1-name').innerHTML = translations[lang].npc1_name;
+            document.getElementById('npc1-desc').innerHTML = translations[lang].npc1_desc;
+            document.getElementById('npc2-name').innerHTML = translations[lang].npc2_name;
+            document.getElementById('npc2-desc').innerHTML = translations[lang].npc2_desc;
+            document.getElementById('npc3-name').innerHTML = translations[lang].npc3_name;
+            document.getElementById('npc3-desc').innerHTML = translations[lang].npc3_desc;
+            document.getElementById('btn-insta').innerHTML = translations[lang].insta;
+            document.getElementById('footer-text').innerHTML = translations[lang].footer;
+
+            document.getElementById('btn-it').classList.remove('active');
+            document.getElementById('btn-cal').classList.remove('active');
+            document.getElementById(`btn-${lang}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
