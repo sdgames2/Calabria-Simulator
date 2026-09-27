@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CODICE DI VERIFICA GOOGLE INSERITO QUI SOTTO -->
     <meta name="google-site-verification" content="googleceaf0af92bc75997" />
     
     <title>Calabria Simulator - Official Site</title>
@@ -118,18 +119,38 @@
             text-align: center;
             margin: 20px 0 30px 0;
             background: rgba(76, 175, 80, 0.1);
-            padding: 15px;
-            border-radius: 50px;
+            padding: 20px 15px;
+            border-radius: 20px;
             border: 1px solid #4caf50;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .audio-player-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .audio-container span {
             font-weight: bold;
             color: #4caf50;
+        }
+
+        .audio-credits {
+            font-size: 0.85rem;
+            color: #a3b8a3;
+            max-width: 90%;
+            line-height: 1.4;
+            font-style: italic;
+            border-top: 1px dashed rgba(76, 175, 80, 0.3);
+            padding-top: 10px;
+            margin-top: 5px;
         }
 
         .tagline {
@@ -272,11 +293,13 @@
 </head>
 <body>
 
+    <!-- Immagini laterali -->
     <img src="icona 1.jpg" alt="Scimmia Decorativa Sinistra" class="side-scimmia-left">
     <img src="icona 2.jpg" alt="Scimmia Decorativa Destra" class="side-scimmia-right">
 
     <div class="container">
         
+        <!-- SELETTORE LINGUA -->
         <div class="language-selector">
             <button class="lang-btn active" onclick="switchLanguage('it')" id="btn-it">
                 <img src="logo lingua italiana.jpg" alt="Italiano">
@@ -292,12 +315,18 @@
             <p class="tagline" id="tagline">"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N'duja."</p>
         </header>
 
+        <!-- COLONNA SONORA SITO CON CREDITS -->
         <div class="audio-container">
-            <span id="audio-title">🔊 COLONNA SONORA:</span>
-            <audio controls autoplay loop>
-                <source src="musica sito.mp3" type="audio/mpeg">
-                Il tuo browser non supporta l'elemento audio.
-            </audio>
+            <div class="audio-player-wrapper">
+                <span id="audio-title">🔊 COLONNA SONORA:</span>
+                <audio controls autoplay loop>
+                    <source src="musica sito.mp3" type="audio/mpeg">
+                    Il tuo browser non supporta l'elemento audio.
+                </audio>
+            </div>
+            <div class="audio-credits" id="audio-credits">
+                Il brano principale utilizzato nel gioco e sul sito trae ispirazione dalle sonorità e dallo stile del musicista Silvio Tattoli, che ringraziamo per la disponibilità e la gentilezza.
+            </div>
         </div>
 
         <div class="intro" id="intro-text">
@@ -305,6 +334,7 @@
             Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco. Segui i nostri update!
         </div>
 
+        <!-- SEZIONE MULTIMEDIALE VIDEO -->
         <div class="video-grid">
             <div>
                 <div class="video-section-title" id="vtitle-1">🎬 Trailer di Presentazione</div>
@@ -332,7 +362,7 @@
             <ul>
                 <li>
                     <strong id="npc1-name">Il Silanum</strong>
-                    <span id="npc1-desc">Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>Banastona</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!</span>
+                    <span id="npc1-desc">Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>Banastola</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!</span>
                 </li>
             </ul>
         </section>
@@ -351,6 +381,7 @@
             </ul>
         </section>
 
+        <!-- PULSANTE INSTAGRAM -->
         <div class="cta-container">
             <a href="https://www.instagram.com/calabria_simulator_?igsh=MTV6bG1uNjFwejUzbQ==" target="_blank" class="btn-instagram" id="btn-insta">SEGUI LO SVILUPPO SU INSTAGRAM</a>
         </div>
@@ -361,12 +392,14 @@
 
     </div>
 
+    <!-- SCRIPT CAMBIO LINGUA -->
     <script>
         const translations = {
             it: {
                 badge: "⚠️ GIOCO IN FASE DI SVILUPPO ⚠️",
                 tagline: '"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N\'duja."',
                 audio: "🔊 COLONNA SONORA:",
+                audio_credits: "Il brano principale utilizzato nel gioco e sul sito trae ispirazione dalle sonorità e dallo stile del musicista Silvio Tattoli, che ringraziamo per la disponibilità e la gentilezza.",
                 intro: "Benvenuti sul sito ufficiale di Calabria Simulator: l'unico gioco dove il progresso si respira nell'aria (e ha il sapore dell'eternità).<br><br>Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco. Segui i nostri update!",
                 vtitle1: "🎬 Trailer di Presentazione",
                 vtitle2: "🎮 Anteprima Gameplay",
@@ -385,6 +418,7 @@
                 badge: "⚠️ U JOCU U STANNUME FACENDU MO ⚠️",
                 tagline: '"A civiltà carriu a \'mpernu. A natura si ripigghiau tuttu. E i scimmie ampararunu u sicretu da N\'duja."',
                 audio: "🔊 A MUSICHETTA DU SITO:",
+                audio_credits: "U pezzu principale chi s'ascolta 'ntru jocu e supra u situ pigghia spunto d'i soni e d'u stile d'u musicista Silvio Tattoli, chi ringraziamu p'a disponibilità e a gentilezza.",
                 intro: "Benvenuti supru u situ ufficiali di Calabria Simulator: l\'unicu jocu per canusci u veru prugressu (chi puzza de eternità).<br><br>Un faciti i fissa cu i soliti jochi patinati de fora. Chi u jannu stamu facendu, Calabria Simulator vi jatta dintra u core da Calabria, tutta sfasciata e arrizzata a stile de scimmia block. Siga l\'evoluzioni!",
                 vtitle1: "🎬 Presentazione Video",
                 vtitle2: "🎮 Videuzzu de Giocu",
@@ -405,6 +439,7 @@
             document.getElementById('dev-badge').innerHTML = translations[lang].badge;
             document.getElementById('tagline').innerHTML = translations[lang].tagline;
             document.getElementById('audio-title').innerHTML = translations[lang].audio;
+            document.getElementById('audio-credits').innerHTML = translations[lang].audio_credits;
             document.getElementById('intro-text').innerHTML = translations[lang].intro;
             document.getElementById('vtitle-1').innerHTML = translations[lang].vtitle1;
             document.getElementById('vtitle-2').innerHTML = translations[lang].vtitle2;
