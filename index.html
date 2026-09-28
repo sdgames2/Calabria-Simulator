@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="googleceaf0af92bc75997" />
-    <title>Calabria Simulator - Official Portal</title>
+    <title>Calabria Simulator - Official Website</title>
     
-    <!-- Google Fonts Moderni -->
+    <!-- Google Fonts Gaming Moderni -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-page: #080d0a;
-            --panel-bg: rgba(18, 26, 21, 0.75);
-            --panel-border: rgba(255, 255, 255, 0.08);
-            --accent-green: #10b981;
-            --accent-amber: #f59e0b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --radius-xl: 24px;
-            --radius-lg: 16px;
+            --accent-green: #00ff87;
+            --accent-red: #ff3b30;
+            --accent-gold: #ffcc00;
+            --surface-dark: rgba(10, 15, 12, 0.78);
+            --surface-border: rgba(255, 255, 255, 0.2);
+            --text-light: #ffffff;
+            --text-dim: #cbd5e1;
         }
 
         * {
@@ -30,357 +28,394 @@
             padding: 0;
         }
 
-        /* Sfondo Moderno Mesh-Gradient */
+        /* SFONDO CHIARO E LUMINOSO */
         body {
-            background-color: var(--bg-page);
+            background-color: #1a2b22;
             background-image: 
-                radial-gradient(at 50% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 40%),
-                radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 40%);
+                linear-gradient(180deg, rgba(6, 9, 7, 0.15) 0%, rgba(6, 9, 7, 0.35) 100%),
+                url('sfondo sito.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
-            color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
             line-height: 1.6;
-            min-height: 100vh;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Immagini decorative laterali */
-        .side-scimmia {
+        /* IMMAGINI LATERALI DECORATIVE */
+        .side-monkey {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            width: 240px;
+            width: 250px;
             height: auto;
-            z-index: 10;
+            z-index: 2;
             pointer-events: none;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8));
-            opacity: 0.8;
+            filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.6));
+            opacity: 0.9;
         }
 
-        .side-scimmia.left { left: 20px; }
-        .side-scimmia.right { right: 20px; }
+        .side-monkey.left { left: 20px; }
+        .side-monkey.right { right: 20px; }
 
-        .app-layout {
-            max-width: 1000px;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px 70px 20px;
+            padding: 30px 20px 80px 20px;
             position: relative;
-            z-index: 5;
+            z-index: 10;
         }
 
-        /* Header Principale: Logo Centrato in Alto */
-        .main-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .brand-logo-main {
-            max-width: 100%;
-            width: 520px;
-            height: auto;
-            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
-            transition: transform 0.3s ease;
-        }
-
-        .brand-logo-main:hover {
-            transform: scale(1.02);
-        }
-
-        /* Top Bar Sub-Header con Badge e Lingue */
-        .sub-bar {
+        /* TOP STATUS & LINGUE */
+        .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--panel-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--panel-border);
-            padding: 14px 28px;
-            border-radius: var(--radius-xl);
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: var(--surface-dark);
+            border: 1px solid var(--surface-border);
+            padding: 12px 24px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .status-badge {
+        .status-pill {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(245, 158, 11, 0.12);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: var(--accent-amber);
+            color: var(--accent-gold);
+            font-size: 0.82rem;
             font-weight: 700;
-            font-size: 0.85rem;
-            padding: 8px 18px;
-            border-radius: 100px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--accent-amber);
+            background-color: var(--accent-gold);
             border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-gold);
+            animation: blink 1.5s infinite;
         }
 
-        /* Bandiere Ingrandite */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* SELETTORE LINGUA CON FLAG */
         .lang-switch {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .lang-btn {
             background: transparent;
-            border: 3px solid transparent;
+            border: 2px solid transparent;
+            border-radius: 10px;
             cursor: pointer;
-            padding: 3px;
-            border-radius: 12px;
-            transition: all 0.25s ease;
-            opacity: 0.5;
+            padding: 2px;
+            transition: all 0.2s ease;
+            opacity: 0.65;
         }
 
         .lang-btn:hover {
-            opacity: 0.85;
-            transform: translateY(-2px);
+            opacity: 0.9;
+            transform: scale(1.05);
         }
 
         .lang-btn.active {
             opacity: 1;
             border-color: var(--accent-green);
-            background: rgba(16, 185, 129, 0.15);
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+            box-shadow: 0 0 15px rgba(0, 255, 135, 0.5);
         }
 
         .lang-btn img {
-            width: 80px;  
-            height: 52px; 
+            width: 65px;
+            height: 42px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 6px;
             display: block;
         }
 
-        /* Grid Hero / Tagline & Player Audio */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-
-        .panel-card {
-            background: var(--panel-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--panel-border);
-            border-radius: var(--radius-xl);
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        .tagline-panel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* HERO STAGE */
+        .hero-stage {
             text-align: center;
+            margin-bottom: 45px;
         }
 
-        .hero-tagline {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            line-height: 1.6;
+        .main-logo {
+            width: 580px;
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.9));
+            transition: transform 0.3s ease;
         }
 
-        .audio-panel {
-            background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, rgba(18, 26, 21, 0.85) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            text-align: center;
+        .main-logo:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-quote-box {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(10, 15, 12, 0.75);
+            border-top: 1px solid rgba(0, 255, 135, 0.4);
+            border-bottom: 1px solid rgba(0, 255, 135, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-quote {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent-green);
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        /* AUDIOPLAYER RETRO */
+        .audio-console {
+            background: var(--surface-dark);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 40px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        .audio-header {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--accent-green);
+        .audio-console::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-gold), var(--accent-red));
+        }
+
+        .audio-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
             text-transform: uppercase;
+            color: var(--text-light);
             letter-spacing: 1px;
-            margin-bottom: 14px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         audio {
             width: 100%;
-            margin-bottom: 16px;
+            max-width: 600px;
             outline: none;
         }
 
-        /* Crediti ingranditi e messi in evidenza */
-        .audio-subtext {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--accent-amber);
-            line-height: 1.5;
-            border-top: 1px solid var(--panel-border);
-            padding-top: 14px;
-            background: rgba(245, 158, 11, 0.06);
-            border-radius: var(--radius-lg);
-            padding: 12px 16px;
-            margin-top: 4px;
-            width: 100%;
-        }
-
-        /* Intro Banner */
-        .intro-banner {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            text-align: center;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        /* Video Grid */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-
-        .media-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-        }
-
-        .media-card h3 {
+        .credits-card {
+            background: rgba(255, 204, 0, 0.16);
+            border: 1px solid rgba(255, 204, 0, 0.5);
+            border-radius: 12px;
+            padding: 14px 22px;
+            color: var(--accent-gold);
             font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--accent-amber);
+            text-align: center;
+            width: 100%;
+            max-width: 750px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        .video-box {
-            background: #000;
+        /* INTRO BOARD */
+        .intro-board {
+            background: var(--surface-dark);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 35px;
+            font-size: 1.15rem;
+            color: #ffffff;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* GRID VIDEO SHOWCASE */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .video-card {
+            background: var(--surface-dark);
+            border: 1px solid var(--surface-border);
+            border-radius: 18px;
+            padding: 20px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.3s ease;
+        }
+
+        .video-card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .video-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .video-frame {
             border-radius: 12px;
             overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .video-box video {
+        .video-frame video {
             width: 100%;
             display: block;
         }
 
-        /* Info Cards (Creature & Robot) */
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-primary);
+        /* DOSSIER SECTION */
+        .dossier-section {
+            background: var(--surface-dark);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        .npc-grid {
+        .dossier-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-green);
+            padding-left: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .dossier-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .npc-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--panel-border);
-            border-radius: var(--radius-lg);
+        .dossier-item {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
             padding: 20px;
-            border-left: 4px solid var(--accent-green);
         }
 
-        .npc-box.cyber {
-            border-left-color: var(--accent-amber);
+        .dossier-item.robot-item {
+            border-top: 3px solid var(--accent-red);
         }
 
-        .npc-box h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
+        .dossier-item h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        .npc-box p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+        .dossier-item.robot-item h4 {
+            color: var(--accent-red);
         }
 
-        /* Call To Action */
-        .footer-action {
+        .dossier-item p {
+            color: var(--text-dim);
+            font-size: 0.98rem;
+        }
+
+        /* CTA INSTAGRAM */
+        .cta-area {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        .btn-action {
-            background: var(--text-primary);
-            color: var(--bg-page);
-            padding: 16px 42px;
+        .btn-cta {
+            background: var(--accent-green);
+            color: #000;
+            font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            padding: 18px 45px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 100px;
             display: inline-block;
-            transition: all 0.25s ease;
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 135, 0.5);
+            transition: all 0.3s ease;
         }
 
-        .btn-action:hover {
-            transform: translateY(-3px);
-            background: #e2e8f0;
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        .btn-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 45px rgba(0, 255, 135, 0.7);
+            background: #20ff96;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
+            color: #ffffff;
             font-size: 0.88rem;
-            color: var(--text-secondary);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
         }
 
-        /* Responsive */
-        @media (max-width: 1350px) {
-            .side-scimmia { display: none; }
+        /* RESPONSIVE */
+        @media (max-width: 1300px) {
+            .side-monkey { display: none; }
         }
 
-        @media (max-width: 850px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .grid-2 { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 600px) {
-            .sub-bar { flex-direction: column; gap: 16px; text-align: center; }
-            .brand-logo-main { width: 100%; }
-            .lang-switch { flex-wrap: wrap; justify-content: center; }
-            .lang-btn img { width: 65px; height: 42px; }
-            .btn-action { width: 100%; text-align: center; }
+        @media (max-width: 800px) {
+            .video-grid { grid-template-columns: 1fr; }
+            .top-bar { flex-direction: column; gap: 15px; }
+            .lang-btn img { width: 55px; height: 36px; }
+            .btn-cta { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Immagini laterali decorative -->
-    <img src="icona 1.jpg" alt="Scimmia Decorativa Sinistra" class="side-scimmia left">
-    <img src="icona 2.jpg" alt="Scimmia Decorativa Destra" class="side-scimmia right">
+    <!-- SCIMMIE LATERALI -->
+    <img src="icona 1.jpg" alt="Decorazione Sinistra" class="side-monkey left">
+    <img src="icona 2.jpg" alt="Decorazione Destra" class="side-monkey right">
 
-    <div class="app-layout">
+    <div class="container">
         
-        <!-- Logo Centrato in Alto -->
-        <header class="main-header">
-            <img src="logo calabria simulator.jpg" alt="Calabria Simulator Logo" class="brand-logo-main">
-        </header>
-
-        <!-- Sub-Bar con Badge e Cambio Lingua -->
-        <div class="sub-bar">
-            <div class="status-badge" id="dev-badge">
+        <!-- BARRA SUPERIORE -->
+        <div class="top-bar">
+            <div class="status-pill" id="dev-badge">
                 <span class="status-dot"></span>
                 GIOCO IN FASE DI SVILUPPO
             </div>
-            
+
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="switchLanguage('it')" id="btn-it" title="Italiano">
                     <img src="logo lingua italiana.jpg" alt="Italiano">
@@ -394,43 +429,45 @@
             </div>
         </div>
 
-        <!-- Tagline & Audio Grid -->
-        <div class="hero-grid">
-            <div class="panel-card tagline-panel">
-                <p class="hero-tagline" id="tagline">"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N'duja."</p>
-            </div>
-
-            <div class="panel-card audio-panel">
-                <span class="audio-header" id="audio-title">🔊 Colonna Sonora Ufficiale</span>
-                <audio controls autoplay loop>
-                    <source src="musica sito.mp3" type="audio/mpeg">
-                </audio>
-                <div class="audio-subtext" id="audio-credits">
-                    Ispirato alle sonorità del musicista Silvio Tattoli, che ringraziamo per la gentile disponibilità.
-                </div>
+        <!-- HERO STAGE -->
+        <div class="hero-stage">
+            <img src="logo calabria simulator.jpg" alt="Calabria Simulator" class="main-logo">
+            <div class="hero-quote-box">
+                <p class="hero-quote" id="tagline">"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N'duja."</p>
             </div>
         </div>
 
-        <!-- Intro Banner -->
-        <div class="panel-card intro-banner" id="intro-text">
+        <!-- CONSOLE AUDIO CON CREDITI IN EVIDENZA -->
+        <div class="audio-console">
+            <div class="audio-title" id="audio-title">🎵 Colonna Sonora Ufficiale</div>
+            <audio controls autoplay loop>
+                <source src="musica sito.mp3" type="audio/mpeg">
+            </audio>
+            <div class="credits-card" id="audio-credits">
+                Ispirato alle sonorità del musicista Silvio Tattoli, che ringraziamo per la gentile disponibilità.
+            </div>
+        </div>
+
+        <!-- INTRODUZIONE -->
+        <div class="intro-board" id="intro-text">
             Benvenuti sul sito ufficiale di Calabria Simulator: l'unico gioco dove il progresso si respira nell'aria (e ha il sapore dell'eternità).<br><br>
             Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco.
         </div>
 
-        <!-- Video Grid -->
-        <div class="grid-2">
-            <div class="media-card">
+        <!-- ANTEPRIME VIDEO -->
+        <div class="video-grid">
+            <div class="video-card">
                 <h3 id="vtitle-1">🎬 Trailer di Presentazione</h3>
-                <div class="video-box">
+                <div class="video-frame">
                     <video controls playsinline poster="logo calabria simulator.jpg">
                         <source src="presentazione.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
 
-            <div class="media-card">
-                <h3 id="vtitle-2">🎮 Anteprima Gameplay</h3>
-                <div class="video-box">
+            <div class="video-card">
+                <h3 id="vtitle-2">🎙️ Intervista</h3>
+                <div class="video-frame">
                     <video controls playsinline poster="logo calabria simulator.jpg">
                         <source src="anteprima 1.mp4" type="video/mp4">
                     </video>
@@ -438,35 +475,35 @@
             </div>
         </div>
 
-        <!-- Info Creature -->
-        <div class="panel-card" style="margin-bottom: 30px;">
-            <div class="section-title" id="sect1-title">🐺 Le Creature dell'Altopiano</div>
-            <div class="npc-grid">
-                <div class="npc-box">
+        <!-- DOSSIER CREATURE -->
+        <div class="dossier-section">
+            <div class="dossier-header" id="sect1-title">🐺 Le Creature dell'Altopiano</div>
+            <div class="dossier-grid">
+                <div class="dossier-item">
                     <h4 id="npc1-name">Il Silanum</h4>
-                    <p id="npc1-desc">Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>Banastola</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!</p>
+                    <p id="npc1-desc">Questa creatura pelosa proveniente dall'altopiano della Sila ti prende a suon di mazzate se osi avvicinarti. Se provi a sparargli, si trasforma in una 'nduja, ma proprio mentre compie la metamorfosi ti lancia contro una devastante iettatoria!</p>
                 </div>
             </div>
         </div>
 
-        <!-- Info Robot -->
-        <div class="panel-card" style="margin-bottom: 30px;">
-            <div class="section-title" id="sect2-title">🤖 Minaccia Cyber-Calabra: I Robot</div>
-            <div class="npc-grid">
-                <div class="npc-box cyber">
+        <!-- DOSSIER ROBOT -->
+        <div class="dossier-section">
+            <div class="dossier-header" id="sect2-title" style="border-left-color: var(--accent-red);">🤖 Minaccia Cyber-Calabra: I Robot</div>
+            <div class="dossier-grid">
+                <div class="dossier-item robot-item">
                     <h4 id="npc2-name">Il Robot Tarantulò</h4>
                     <p id="npc2-desc">Un'intelligenza artificiale fissa ed onnipresente. Puoi trovarlo installato in un qualsiasi bar della Calabria. Non fa nulla, non serve caffè, ma vi fissa e vi giudica di continuo per ogni singola azione o scelta di vita che fate all'interno del gioco.</p>
                 </div>
-                <div class="npc-box cyber">
+                <div class="dossier-item robot-item">
                     <h4 id="npc3-name">Il Robot Praticantulò</h4>
                     <p id="npc3-desc">Una letale anomalia fluttuante. Questo robot volante vi inseguirà implacabilmente per tutta la mappa ripetendo in loop il suo folle glitch di programmazione vocale: <em>"Quelle scimmie che mi piacciono a me, mi piacciono bionde, capelli magri sex bellissime"</em>. Evitalo a tutti i costi!</p>
                 </div>
             </div>
         </div>
 
-        <!-- CTA Instagram -->
-        <div class="footer-action">
-            <a href="https://www.instagram.com/calabria_simulator_?igsh=MTV6bG1uNjFwejUzbQ==" target="_blank" class="btn-action" id="btn-insta">SEGUI LO SVILUPPO SU INSTAGRAM</a>
+        <!-- LINK INSTAGRAM -->
+        <div class="cta-area">
+            <a href="https://www.instagram.com/calabria_simulator_?igsh=MTV6bG1uNjFwejUzbQ==" target="_blank" class="btn-cta" id="btn-insta">SEGUI LO SVILUPPO SU INSTAGRAM</a>
         </div>
 
         <footer>
@@ -475,20 +512,20 @@
 
     </div>
 
-    <!-- Script Cambio Lingua -->
+    <!-- SCRIPT MULTILINGUA -->
     <script>
         const translations = {
             it: {
                 badge: '<span class="status-dot"></span> GIOCO IN FASE DI SVILUPPO',
                 tagline: '"La civiltà è crollata. La natura si è ripresa tutto. E le scimmie hanno scoperto il segreto della N\'duja."',
-                audio: "🔊 Colonna Sonora Ufficiale",
+                audio: "🎵 Colonna Sonora Ufficiale",
                 audio_credits: "Ispirato alle sonorità del musicista Silvio Tattoli, che ringraziamo per la gentile disponibilità.",
                 intro: "Benvenuti sul sito ufficiale di Calabria Simulator: l'unico gioco dove il progresso si respira nell'aria (e ha il sapore dell'eternità).<br><br>Dimenticate i soliti open-world patinati. Attualmente in pieno sviluppo, Calabria Simulator vi scaraventa nel cuore pulsante della Calabria, interamente riadattato in un folle e spietato stile scimmiesco.",
                 vtitle1: "🎬 Trailer di Presentazione",
-                vtitle2: "🎮 Anteprima Gameplay",
+                vtitle2: "🎙️ Intervista",
                 sect1: "🐺 Le Creature dell'Altopiano",
                 npc1_name: "Il Silanum",
-                npc1_desc: "Il temibile lupo dell'altopiano della Sila. Una fiera leggendaria e spietata: se osi avvicinarti troppo, o peggio, se provi a spararlo con la <em>Banastola</em> (il micidiale mitra a forma di banana), scatenerai la sua furia misticheggiante e inizierà a lanciarti addosso devastanti iettatorie!",
+                npc1_desc: "Questa creatura pelosa proveniente dall'altopiano della Sila ti prende a suon di mazzate se osi avvicinarti. Se provi a sparargli, si trasforma in una 'nduja, ma proprio mentre compie la metamorfosi ti lancia contro una devastante iettatoria!",
                 sect2: "🤖 Minaccia Cyber-Calabra: I Robot",
                 npc2_name: "Il Robot Tarantulò",
                 npc2_desc: "Un'intelligenza artificiale fissa ed onnipresente. Puoi trovarlo installato in un qualsiasi bar della Calabria. Non fa nulla, non serve caffè, ma vi fissa e vi giudica di continuo per ogni singola azione o scelta di vita che fate all'interno del gioco.",
@@ -500,14 +537,14 @@
             cal: {
                 badge: '<span class="status-dot"></span> U JOCU U STANNUME FACENDU MO',
                 tagline: '"A civiltà carriu a \'mpernu. A natura si ripigghiau tuttu. E i scimmie ampararunu u sicretu da N\'duja."',
-                audio: "🔊 A Musichetta du Sito",
+                audio: "🎵 A Musichetta du Sito",
                 audio_credits: "U pezzu principale pigghia spunto d'i soni d'u musicista Silvio Tattoli, chi ringraziamu p'a gentilezza.",
                 intro: "Benvenuti supru u situ ufficiali di Calabria Simulator: l\'unicu jocu per canusci u veru prugressu (chi puzza de eternità).<br><br>Un faciti i fissa cu i soliti jochi patinati de fora. Chi u jannu stamu facendu, Calabria Simulator vi jatta dintra u core da Calabria, tutta sfasciata e arrizzata a stile de scimmia block.",
                 vtitle1: "🎬 Presentazione Video",
-                vtitle2: "🎮 Videuzzu de Giocu",
+                vtitle2: "🎙️ Intervista",
                 sect1: "🐺 I Bestie da Sila",
                 npc1_name: "U Silanum",
-                npc1_desc: "U lupu bruttu da Sila. Na bestia malanova: si t\'avvicini o si provi a spararli cu a <em>Banastola</em> (u mitra a forma de banana chi s\'accatta o bar), chistu s\'incazza e ti jetta iettatorie e fatture dintra l\'occhi!",
+                npc1_desc: "Chista bestia pilosa chi veni d'a Sila ti pigghia a mazzate si t'avvicini! Si provi a spararli si trasforma intra na 'nduja, ma mentre fa a metamorfosi ti jetta na iettatoria ritta dintra l'occhi!",
                 sect2: "🤖 I Robot chi rompunu i scatuli",
                 npc2_name: "U Robot Tarantulò",
                 npc2_desc: "N\'intelligenza artificiali chi sta sempri fissa. U trovi intra tutti i bar da Calabria. Un fa nenti, mancu u cafè ti fa, ma ti fissa e ti judica sempri c\'un cannelu de mmerda ppe ogni fissa de scelta chi fai intra u jocu.",
@@ -519,19 +556,19 @@
             en: {
                 badge: '<span class="status-dot"></span> GAME IN DEVELOPMENT',
                 tagline: '"Civilization has fallen. Nature took everything back. And monkeys discovered the secret of N\'duja."',
-                audio: "🔊 Official Soundtrack",
+                audio: "🎵 Official Soundtrack",
                 audio_credits: "Inspired by the sounds of musician Silvio Tattoli, whom we thank for his kind availability.",
                 intro: "Welcome to the official Calabria Simulator website: the only game where progress is in the air (and tastes like eternity).<br><br>Forget the usual polished open-world games. Currently in active development, Calabria Simulator throws you into the wild heart of Calabria, completely reimagined in a crazy and ruthless ape style.",
                 vtitle1: "🎬 Teaser Trailer",
-                vtitle2: "🎮 Gameplay Preview",
+                vtitle2: "🎙️ Interview",
                 sect1: "🐺 Plateau Creatures",
                 npc1_name: "The Silanum",
-                npc1_desc: "The terrifying wolf of the Sila plateau. A legendary and ruthless beast: if you dare get too close, or worse, try to shoot it with the <em>Banastola</em> (the deadly banana-shaped assault rifle), you will unleash its mystical rage and it will cast devastating curses upon you!",
+                npc1_desc: "This hairy creature from the Sila plateau will beat you up if you dare get close. If you try to shoot it, it transforms into a 'nduja, but right as it metamorphoses, it casts a devastating curse on you!",
                 sect2: "🤖 Cyber-Calabrian Threat: The Robots",
                 npc2_name: "Tarantulò Robot",
                 npc2_desc: "A stationary and omnipresent artificial intelligence. You can find it installed in any coffee bar across Calabria. It does nothing and serves no coffee, but it continuously stares at you and judges every single action or life choice you make in the game.",
                 npc3_name: "Praticantulò Robot",
-                npc3_desc: "A lethal floating anomaly. This flying robot will relentlessly chase you across the entire map, repeating its crazy vocal programming glitch on loop: <em>\"Quelle scimmie che mi piacciono a me, mi piacciono bionde, capelli magri sex bellissime\"</em>. Avoid it at all costs!",
+                npc3_desc: "A lethal floating anomaly. This flying robot will relentlessly chase you across the entire map, repeating its crazy vocal programming glitch on loop: <em>\"Quelle scimmie that I like, I like them blonde, thin hair, beautiful sex\"</em>. Avoid it at all costs!",
                 insta: "FOLLOW DEVELOPMENT ON INSTAGRAM",
                 footer: "&copy; 2026 Calabria Simulator Dev Team. Project Status: In Development."
             }
