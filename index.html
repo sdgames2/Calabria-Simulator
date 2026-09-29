@@ -16,6 +16,7 @@
             --accent-green: #00ff87;
             --accent-red: #ff3b30;
             --accent-gold: #ffcc00;
+            --accent-orange: #ff9500;
             --surface-dark: rgba(10, 15, 12, 0.78);
             --surface-border: rgba(255, 255, 255, 0.2);
             --text-light: #ffffff;
@@ -333,6 +334,10 @@
             padding: 20px;
         }
 
+        .dossier-item.criminal-item {
+            border-top: 3px solid var(--accent-orange);
+        }
+
         .dossier-item.robot-item {
             border-top: 3px solid var(--accent-red);
         }
@@ -343,6 +348,10 @@
             color: var(--accent-green);
             margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .dossier-item.criminal-item h4 {
+            color: var(--accent-orange);
         }
 
         .dossier-item.robot-item h4 {
@@ -486,6 +495,21 @@
             </div>
         </div>
 
+        <!-- DOSSIER SCIMMIE CRIMINALI -->
+        <div class="dossier-section">
+            <div class="dossier-header" id="sect3-title" style="border-left-color: var(--accent-orange);">🍌 Scimmie Criminali</div>
+            <div class="dossier-grid">
+                <div class="dossier-item criminal-item">
+                    <h4 id="npc4-name">Il Calabriat</h4>
+                    <p id="npc4-desc">Un temibile gorilla maranza dotato di una marcata voce da zingaro. Non appena ti adocchia non ci penserà due volte a prenderti a suon di mazzate! Se provi a sparargli, durante la sua metamorfosi ti scaglierà contro una potentissima iettatoria!</p>
+                </div>
+                <div class="dossier-item criminal-item">
+                    <h4 id="npc5-name">Il Piccàttivo</h4>
+                    <p id="npc5-desc">Un temibile peperoncino vivo che fluttua sospeso nel vuoto. Non appena ti adocchia ti darà immediatamente fuoco con la sua calura infernale! Tuttavia, se hai la prontezza di sparargli al volo, si trasformerà all'istante in una prelibata 'nduja.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- DOSSIER ROBOT -->
         <div class="dossier-section">
             <div class="dossier-header" id="sect2-title" style="border-left-color: var(--accent-red);">🤖 Minaccia Cyber-Calabra: I Robot</div>
@@ -526,6 +550,11 @@
                 sect1: "🐺 Le Creature dell'Altopiano",
                 npc1_name: "Il Silanum",
                 npc1_desc: "Questa creatura pelosa proveniente dall'altopiano della Sila ti prende a suon di mazzate se osi avvicinarti. Se provi a sparargli, si trasforma in una 'nduja, ma proprio mentre compie la metamorfosi ti lancia contro una devastante iettatoria!",
+                sect3: "🍌 Scimmie Criminali",
+                npc4_name: "Il Calabriat",
+                npc4_desc: "Un temibile gorilla maranza dotato di una marcata voce da zingaro. Non appena ti adocchia non ci penserà due volte a prenderti a suon di mazzate! Se provi a sparargli, durante la sua metamorfosi ti scaglierà contro una potentissima iettatoria!",
+                npc5_name: "Il Piccàttivo",
+                npc5_desc: "Un temibile peperoncino vivo che fluttua sospeso nel vuoto. Non appena ti adocchia ti darà immediatamente fuoco con la sua calura infernale! Tuttavia, se hai la prontezza di sparargli al volo, si trasformerà all'istante in una prelibata 'nduja.",
                 sect2: "🤖 Minaccia Cyber-Calabra: I Robot",
                 npc2_name: "Il Robot Tarantulò",
                 npc2_desc: "Un'intelligenza artificiale fissa ed onnipresente. Puoi trovarlo installato in un qualsiasi bar della Calabria. Non fa nulla, non serve caffè, ma vi fissa e vi giudica di continuo per ogni singola azione o scelta di vita che fate all'interno del gioco.",
@@ -545,6 +574,11 @@
                 sect1: "🐺 I Bestie da Sila",
                 npc1_name: "U Silanum",
                 npc1_desc: "Chista bestia pilosa chi veni d'a Sila ti pigghia a mazzate si t'avvicini! Si provi a spararli si trasforma intra na 'nduja, ma mentre fa a metamorfosi ti jetta na iettatoria ritta dintra l'occhi!",
+                sect3: "🍌 Scimmie Criminali",
+                npc4_name: "U Calabriat",
+                npc4_desc: "Nu gorilla maranza malanova cu a voce de zingaru! Comu ti vidi ti pigghia subito a mazzate senza pietà. Si provi a spararli, mentri fa a metamorfosi ti jetta na iettatoria potentissima!",
+                npc5_name: "U Piccàttivo",
+                npc5_desc: "Nu pipazzu vivu chi vola e fluttua intra u vuotu! Comu ti vidi ti vampat'a fuoco subitu ca so calura infernali! Ma si si prestu e li spari 'mpernu, si trasforma 'istante intra na bella 'nduja!",
                 sect2: "🤖 I Robot chi rompunu i scatuli",
                 npc2_name: "U Robot Tarantulò",
                 npc2_desc: "N\'intelligenza artificiali chi sta sempri fissa. U trovi intra tutti i bar da Calabria. Un fa nenti, mancu u cafè ti fa, ma ti fissa e ti judica sempri c\'un cannelu de mmerda ppe ogni fissa de scelta chi fai intra u jocu.",
@@ -564,6 +598,11 @@
                 sect1: "🐺 Plateau Creatures",
                 npc1_name: "The Silanum",
                 npc1_desc: "This hairy creature from the Sila plateau will beat you up if you dare get close. If you try to shoot it, it transforms into a 'nduja, but right as it metamorphoses, it casts a devastating curse on you!",
+                sect3: "🍌 Criminal Monkeys",
+                npc4_name: "The Calabriat",
+                npc4_desc: "A fearsome maranza gorilla with a distinct gypsy voice. The moment he spots you, he won't hesitate to beat you up! If you try to shoot him, during his metamorphosis he will unleash a powerful curse upon you!",
+                npc5_name: "The Piccàttivo",
+                npc5_desc: "A fearsome living chilli pepper floating suspended in the void. As soon as it spots you, it immediately sets you on fire with its infernal heat! However, if you are quick enough to shoot it, it instantly transforms into a delicious 'nduja.",
                 sect2: "🤖 Cyber-Calabrian Threat: The Robots",
                 npc2_name: "Tarantulò Robot",
                 npc2_desc: "A stationary and omnipresent artificial intelligence. You can find it installed in any coffee bar across Calabria. It does nothing and serves no coffee, but it continuously stares at you and judges every single action or life choice you make in the game.",
@@ -585,6 +624,11 @@
             document.getElementById('sect1-title').innerHTML = translations[lang].sect1;
             document.getElementById('npc1-name').innerHTML = translations[lang].npc1_name;
             document.getElementById('npc1-desc').innerHTML = translations[lang].npc1_desc;
+            document.getElementById('sect3-title').innerHTML = translations[lang].sect3;
+            document.getElementById('npc4-name').innerHTML = translations[lang].npc4_name;
+            document.getElementById('npc4-desc').innerHTML = translations[lang].npc4_desc;
+            document.getElementById('npc5-name').innerHTML = translations[lang].npc5_name;
+            document.getElementById('npc5-desc').innerHTML = translations[lang].npc5_desc;
             document.getElementById('sect2-title').innerHTML = translations[lang].sect2;
             document.getElementById('npc2-name').innerHTML = translations[lang].npc2_name;
             document.getElementById('npc2-desc').innerHTML = translations[lang].npc2_desc;
